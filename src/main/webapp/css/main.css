@@ -1,0 +1,14 @@
+@charset "UTF-8";
+/*设置查询条件控件的宽度*/
+input[name="userName"],select[name="userSex"]{
+    width: 150px;
+}
+/*设置表格的边框*/
+table,tr,th,td{
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+table{
+    width: 50%;
+}
