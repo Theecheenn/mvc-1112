@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -31,8 +32,14 @@ public class UserSelectServlet extends HttpServlet {
         UserMessageService service = new UserMessageServiceImpl();
         try{
             List<UserMessage> list = service.selectUser(username,userSex);
+            req.setAttribute("userList", list);
+            req.getRequestDispatcher("main.jsp").forward(req, resp);
         } catch (Exception e) {
             e.printStackTrace();
+            HttpSession session = req.getSession(true);
+            session.setAttribute("error", "<script>alert('用户查询失败！！！')</script>");
+            //重定向到main.jsp页面
+            resp.sendRedirect(resp.encodeRedirectURL("main.jsp"));
         }
 
 

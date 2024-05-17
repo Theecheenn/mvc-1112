@@ -16,5 +16,5 @@ public interface UserMessageService {
      * @throws Exception 用户查询失败
      * @author Thecchen
      */
-    public abstract List<UserMessage>selectUser(String userName, String userSex) throws Exception;
+    public abstract List<UserMessage> selectUser(String userName, String userSex) throws Exception;
 }
