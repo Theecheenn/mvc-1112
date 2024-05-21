@@ -1,10 +1,7 @@
 package com.test.controller;
-
-import com.test.dao.impl.UserMessageDaoImpl;
 import com.test.entity.UserMessage;
 import com.test.service.UserMessageService;
 import com.test.service.impl.UserMessageServiceImpl;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,13 +13,13 @@ import java.util.List;
 
 @WebServlet(urlPatterns = "/userSelect")
 public class UserSelectServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       this.doPost(req, resp);
+        doPost(req, resp);
     }
 
+    private static final long serialVersionUID = 1L;
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //获得请求中名字为userName和userSex的值
@@ -39,9 +36,11 @@ public class UserSelectServlet extends HttpServlet {
             HttpSession session = req.getSession(true);
             session.setAttribute("error", "<script>alert('用户查询失败！！！')</script>");
             //重定向到main.jsp页面
-            resp.sendRedirect(resp.encodeRedirectURL("main.jsp"));
+            resp.sendRedirect(resp.encodeRedirectURL(req.getContextPath()+"/main.jsp"));
         }
-
-
     }
+
+
+
+
 }

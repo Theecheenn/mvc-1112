@@ -68,16 +68,20 @@
         session.setAttribute("numbers",array);
     %>
 
-<%--    c:forEach标签，遍历集合--%>
-<%--    items属性：设置将要进行遍历的集合--%>
-<%--    var属性：声明变量，用于保存集合中的数据 数据默认保存在最小的范围对象中--%>
-<%--varStatus属性，声明变量，用于保存保存循环的状态--%>
+    <%--    c:forEach标签，遍历集合--%>
+    <%--    items属性：设置将要进行遍历的集合--%>
+    <%--    var属性：声明变量，用于保存集合中的数据 数据默认保存在最小的范围对象中--%>
+    <%--    varStatus属性，声明变量，用于保存保存循环的状态--%>
 
     <c:forEach items="${sessionScope.numbers}" var="num" varStatus="loop">
-<%--        index:表示循环的下标 从0开始--%>
-<%--        count:表示循环的次数，次数从1开始--%>
+    <%--    index:表示循环的下标 从0开始--%>
+    <%--    count:表示循环的次数，次数从1开始--%>
         ${loop.index}->${loop.count}->${num}<br>
-
     </c:forEach>
+
+    <%--    将sessionID封装到url中--%>
+    <c:url value="main.jsp" var="testUrl"></c:url>
+    <%--    重定向        --%>
+    <c:redirect url="${testUrl}"></c:redirect>
 </body>
 </html>

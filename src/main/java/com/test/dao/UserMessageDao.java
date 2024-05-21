@@ -12,4 +12,6 @@ public interface UserMessageDao {
      * @throws Exception 用户查询失败
      */
     public abstract List<UserMessage> seletByNameandSex(UserMessage userMessage) throws Exception;
+    public abstract int deleteById(Integer userId) throws Exception;
+    public abstract int update(UserMessage userMessage,Integer userId) throws Exception;
 }
